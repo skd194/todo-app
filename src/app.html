@@ -1,20 +1,6 @@
 <template>
-  <h1>${title}</h1>
-  <div>
-    <input type="text" value.bind="todoDescription" />
-    <button click.trigger="addTodo()" disabled.bind="!todoDescription">
-      Add Todo
-    </button>
-    <button click.delegate="removeAllTodos()">Clear</button>
-    <button click.delegate="populateSampleTodos()">Sample Todos</button>
-  </div>
-  <ul>
-    <li repeat.for="todo of todos">
-      <input type="checkbox" checked.bind="todo.done" />
-      <span css="text-decoration: ${todo.done ? 'line-through': 'none'}">
-        ${todo.description}
-      </span>
-      <button click.trigger="removeTodo(todo)">X</button>
-    </li>
-  </ul>
+  <require from="modules/hello-world/pages/hello-world"></require>
+  <require from="modules/todo/pages/todo.component"></require>
+  <hello-world></hello-world>
+  <todo></todo>
 </template>

@@ -1,0 +1,16 @@
+<template>
+  <require from="../components/todo-list.component"></require>
+
+  <h1>${title}</h1>
+  <div click.trigger="eventDelegationSample()">
+    <input type="text" value.bind="todoDescription" />
+    <button click.delegate="addTodo()" disabled.bind="!todoDescription">
+      Add Todo
+    </button>
+    <button click.delegate="removeAllTodos($event)">Clear</button>
+    <button click.trigger="populateSampleTodos()">Sample Todos</button>
+  </div>
+  <div>
+    <todo-list todos.bind="todos" remove></todo-list>
+  </div>
+</template>
