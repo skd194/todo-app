@@ -1,6 +1,28 @@
 <template>
+  <require from="./assets/styles.css"></require>
+
   <require from="modules/hello-world/pages/hello-world"></require>
   <require from="modules/todo/pages/todo.component"></require>
-  <hello-world></hello-world>
-  <todo></todo>
+  <require from="modules/no-selection/pages/no-selection"></require>
+  <!-- <hello-world></hello-world>
+  <todo></todo> -->
+
+  <nav
+    class="navbar navbar-light bg-light border-bottom fixed-top"
+    role="navigation"
+  >
+    <a class="navbar-brand" href="#">
+      <i class="fa fa-user"></i>
+      <span>Contacts</span>
+    </a>
+  </nav>
+
+  <div class="container-md">
+    <div class="row">
+      <div class="col-sm-5 col-md-4">Contact List Placeholder</div>
+      <div>
+        <router-view class="col-sm-7 col-md-8"></router-view>
+      </div>
+    </div>
+  </div>
 </template>
