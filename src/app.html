@@ -4,6 +4,10 @@
   <require from="modules/hello-world/pages/hello-world"></require>
   <require from="modules/todo/pages/todo.component"></require>
   <require from="modules/no-selection/pages/no-selection"></require>
+  <require
+    from="./modules/contact/components/contact-list/contact-list"
+  ></require>
+
   <!-- <hello-world></hello-world>
   <todo></todo> -->
 
@@ -19,10 +23,8 @@
 
   <div class="container-md">
     <div class="row">
-      <div class="col-sm-5 col-md-4">Contact List Placeholder</div>
-      <div>
-        <router-view class="col-sm-7 col-md-8"></router-view>
-      </div>
+      <contact-list class="col-sm-5 col-md-4"></contact-list>
+      <router-view class="col-sm-7 col-md-8"></router-view>
     </div>
   </div>
 </template>

@@ -12,7 +12,7 @@ export class App {
         config.options.root = "/";
         config.map([
             { route: '', moduleId: PLATFORM.moduleName("modules/no-selection/pages/no-selection"), title: 'Select' },
-            { route: 'contacts/:id', moduleId: PLATFORM.moduleName('modules/contact/pages/contact-detail'), name: 'contacts' }
+            { route: 'contacts/:id', moduleId: PLATFORM.moduleName('modules/contact/components/contact-detail/contact-detail'), name: 'contacts' }
         ]);
         this.router = router;
     }
