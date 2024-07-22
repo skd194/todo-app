@@ -1,0 +1,8 @@
+npm install -g jspm http-server rimraf
+npm install jspm --save
+
+
+rimraf .\node_modules\   -- to efficiently delete the folders if not required 
+
+
+jspm registry config github
