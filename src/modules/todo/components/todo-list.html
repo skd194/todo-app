@@ -1,11 +1,20 @@
 <template>
-  <div class="input-group mb-3">
+  <div class="input-group mb-3 position-relative">
+    <!-- Icon Before Input -->
+    <span class="input-group-text">
+      <i class="bi bi-pencil"></i>
+    </span>
+
+    <!-- Input Field -->
     <input
       type="text"
       class="form-control"
       value.bind="newTodoDescription"
       placeholder="What needs to be done?"
+      keyup.delegate="onInputChange()"
     />
+
+    <!-- Add Todo Button -->
     <button
       class="btn btn-outline-primary"
       click.delegate="addTodo()"
@@ -13,7 +22,24 @@
     >
       <i class="bi bi-plus"></i> Add Todo
     </button>
+
+    <!-- Dropdown Form -->
+    <div
+      class="dropdown-menu show w-100 position-absolute"
+      if.bind="showDropdown && filteredSuggestions.length > 0"
+      style="z-index: 1000; top: 100%"
+    >
+      <a
+        repeat.for="suggestion of filteredSuggestions"
+        class="dropdown-item"
+        click.delegate="selectSuggestion(suggestion)"
+      >
+        ${suggestion}
+      </a>
+    </div>
   </div>
+
+  <!-- Todo List -->
   <ul class="list-group">
     <li
       repeat.for="todo of todos"
