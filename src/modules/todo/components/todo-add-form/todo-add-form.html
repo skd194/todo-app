@@ -1,0 +1,64 @@
+<template>
+  <require from="./../../../../shared/components/td-input/td-input"></require>
+
+  <form novalidate class="needs-validation">
+    <div>
+      <!-- Input -->
+      <td-input
+        id="todo-input"
+        type="text"
+        label="Task description"
+        value.bind="data.description"
+        placeholder="What needs to be done?"
+        error-text.bind="errorText"
+        disabled.bind="disabled"
+        min-length.bind="2"
+        max-length.bind="100"
+      ></td-input>
+
+      <!-- Radio Buttons -->
+      <div class="mt-3">
+        <label class="form-label">Select an Option</label>
+        <label>[selected option: ${data.kind}]</label>
+        <div class="form-check">
+          <input
+            type="radio"
+            name="todoKind"
+            id="one-time"
+            checked.bind="data.kind"
+            model.bind="todoKind.OneTime"
+            class="form-check-input"
+          />
+          <label for="one-time" class="form-check-label">One time</label>
+        </div>
+        <div class="form-check">
+          <input
+            type="radio"
+            name="todoKind"
+            id="recurring"
+            checked.bind="data.kind"
+            model.bind="todoKind.Recurring"
+            class="form-check-input"
+          />
+          <label for="recurring" class="form-check-label">Recurring</label>
+        </div>
+      </div>
+
+      <!-- Country Dropdown -->
+      <div class="mt-3">
+        <label for="country-select" class="form-label">Select a Country</label>
+        <label>[Selected Country: ${data.country}]</label>
+        <select
+          id="country-select"
+          class="form-select"
+          value.bind="data.country"
+        >
+          <option repeat.for="country of countries" model.bind="country.code">
+            ${country.name}
+          </option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Add Task</button>
+  </form>
+</template>

@@ -1,3 +1,4 @@
+import { TodoKind } from '../enums/todo-kind';
 
 export interface ITodo {
   description: string;
@@ -5,12 +6,15 @@ export interface ITodo {
 }
 
 export class Todo implements ITodo {
-  public readonly description: string;
+  public description: string;
   public readonly done: boolean;
+  public kind: TodoKind = TodoKind.OneTime;
+  public country: string;
 
   constructor(description: string, done: boolean) {
     this.description = description;
     this.done = done;
+    this.kind = TodoKind.OneTime;
   }
 
   public static new(description: string): Todo {

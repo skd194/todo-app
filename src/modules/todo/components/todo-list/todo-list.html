@@ -1,4 +1,5 @@
 <template>
+  <require from="../todo-add-form/todo-add-form"></require>
   <div class="input-group mb-3 position-relative">
     <!-- Icon Before Input -->
     <span class="input-group-text">
@@ -9,33 +10,30 @@
     <input
       type="text"
       class="form-control"
-      value.bind="newTodoDescription"
+      value.bind="newTodo.description"
       placeholder="What needs to be done?"
-      keyup.delegate="onInputChange()"
+      minlength="2"
+      maxlength="100"
     />
 
     <!-- Add Todo Button -->
     <button
-      class="btn btn-outline-primary"
+      class="btn btn-outline-primary rounded-end"
       click.delegate="addTodo()"
-      disabled.bind="!newTodoDescription"
+      disabled.bind="!newTodo.description"
     >
       <i class="bi bi-plus"></i> Add Todo
     </button>
 
     <!-- Dropdown Form -->
     <div
-      class="dropdown-menu show w-100 position-absolute"
-      if.bind="showDropdown && filteredSuggestions.length > 0"
+      class="dropdown-menu show w-100 position-absolute shadow-lg border-1"
+      if.bind="newTodo.description || true"
       style="z-index: 1000; top: 100%"
     >
-      <a
-        repeat.for="suggestion of filteredSuggestions"
-        class="dropdown-item"
-        click.delegate="selectSuggestion(suggestion)"
-      >
-        ${suggestion}
-      </a>
+      <div class="container">
+        <todo-add-form data.bind="newTodo"></todo-add-form>
+      </div>
     </div>
   </div>
 

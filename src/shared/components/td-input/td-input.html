@@ -1,0 +1,17 @@
+<template>
+  <div class="mb-3">
+    <label for="td-input-field" class="form-label">${label}</label>
+    <input
+      id="td-input-field"
+      type.bind="type"
+      class="form-control"
+      value.bind="value"
+      placeholder.bind="placeholder"
+      disabled.bind="disabled"
+      maxlength.bind="maxLength"
+      minlength.bind="minLength"
+    />
+    <div if.bind="helpText && !errorText" class="form-text">${helpText}</div>
+    <div if.bind="errorText" class="invalid-feedback d-block">${errorText}</div>
+  </div>
+</template>
