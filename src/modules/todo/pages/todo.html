@@ -29,8 +29,8 @@
   <div>
     <todo-list
       todos.bind="todos"
-      on-remove.call="removeTodo($event)"
-      on-add.call="addTodo($event)"
+      on-remove.bind="removeTodo"
+      on-add.bind="addTodo"
     ></todo-list>
   </div>
 </template>

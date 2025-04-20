@@ -14,11 +14,11 @@ export class TodoComponent {
     this.todos = [...this.getSampleTodos];
   }
 
-  public addTodo(todo: Todo) {
+  public addTodo = (todo: Todo) => {
     this.add(this.existingTodoDescriptionSet, todo);
   }
 
-  public removeTodo(todo: Todo) {
+  public removeTodo = (todo: Todo) => {
     const index = this.todos.indexOf(todo);
     if (index > -1) {
       this.todos.splice(index, 1);
