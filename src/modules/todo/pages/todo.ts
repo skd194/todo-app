@@ -1,7 +1,9 @@
-import { customElement } from 'aurelia-framework';
+import { EventAggregator } from 'aurelia-event-aggregator';
+import { autoinject, customElement } from 'aurelia-framework';
 import { Todo, ITodo } from '../models/todo';
+import { TodoAdded } from '../events/todo-added';
 
-
+@autoinject
 @customElement("todo")
 export class TodoComponent {
   private readonly todos: ITodo[];
@@ -10,7 +12,7 @@ export class TodoComponent {
     return new Set(this.todos.map(t => t.description));
   }
 
-  constructor() {
+  constructor(private eventAggregator: EventAggregator) {
     this.todos = [...this.getSampleTodos];
   }
 
@@ -40,6 +42,7 @@ export class TodoComponent {
   private add(existingDescriptionSet: Set<string>, todo: Todo) {
     if (!existingDescriptionSet.has(todo.description)) {
       this.todos.push(todo);
+      this.eventAggregator.publish(new TodoAdded(todo));
     }
   }
 

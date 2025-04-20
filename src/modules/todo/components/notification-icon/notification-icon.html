@@ -1,0 +1,26 @@
+<template>
+  <div class="d-flex align-items-center">
+    <button
+      class="btn btn-light position-relative border border-primary shadow-sm"
+      click.delegate="showNotifications()"
+    >
+      <i class="bi bi-bell-fill text-primary"></i>
+      <!-- Notification Badge -->
+      <span
+        class="position-absolute top-0 start-100 badge rounded-pill bg-warning text-dark border border-secondary"
+        if.bind="notifications.length > 0"
+        style="
+          transform: translate(-55%, -35%);
+          font-size: 0.75rem;
+          min-width: 1.5rem;
+          height: 1.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        ${notifications.length > 5 ? '5+' : notifications.length}
+      </span>
+    </button>
+  </div>
+</template>
