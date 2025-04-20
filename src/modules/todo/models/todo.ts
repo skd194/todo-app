@@ -8,13 +8,13 @@ export interface ITodo {
 export class Todo implements ITodo {
   public description: string;
   public readonly done: boolean;
-  public kind: TodoKind = TodoKind.OneTime;
+  public kind: TodoKind;
   public country: string;
 
   constructor(description: string, done: boolean) {
     this.description = description;
     this.done = done;
-    this.kind = TodoKind.OneTime;
+    this.kind = TodoKind.None;
   }
 
   public static new(description: string): Todo {
